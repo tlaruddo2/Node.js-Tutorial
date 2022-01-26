@@ -17,5 +17,5 @@ window.message;
 //instead global object (access function but not variable)
 global.console.log();
 var message2 = '';
-console.log(global.message2); // undefined
+console.log(global.message2); // undefined.
 
