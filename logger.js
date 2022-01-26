@@ -1,33 +1,29 @@
+(funtion (exports, require, module, __filename, __dirname){
+    
+    var url = 'httpL//mylogger.io/log';
 
-// assume log service url 
-var url = 'httpL//mylogger.io/log';
+    function log(message){
+        //assume send an HTTP request
+        console.log(message);
+    }
 
-function log(message){
-    //assume send an HTTP request == implementation detailed 
-    console.log(message);
-}
+    module.exports = log;
 
-//both variable and function are private 
+    // module.exports.log = log; possible
+    // exports.log = log;possible
 
-
-//export 
-module.exports.log = log;
-module.exports.url = url;
-
-//change name when it is exported 
-// module.exports.endPoint = url; 
-// we don't need to export url which is implementation detailed 
-// no need to be public 
-
-//implementation defailed <=> public interface 
-//public interace here == log function
+    // exports = log; // not able 
+    // since it is reference of exprots module (module.exprots)
 
 
+})
 
-//if want just export single function or obejct
-module.exports = log;
+//how module work: Module Wrapper function 
 
-//in app.js 
-// const logger = require('./logger');
-//logger is function not module obejct
-// log("message");  no need to module name 
+//node does not excute this code directly
+//wrap inside of a fuction 
+// (funtion (exports, require, module, __filename, __dirname){
+
+//require not globall
+
+//__dirname:path of directory
